@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking de Jogadores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ranking de Jogadores</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Player</th>
+                    <th>Kills</th>
+                    <th>Deaths</th>
+                    <th>Assists</th>
+                </tr>
+            </thead>
+            <tbody id="ranking-table">
+                <!-- Os dados do ranking serão inseridos aqui dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+      
+      fetch('http://localhost:3001/ranking')
+    .then(response => response.json())
+    .then(data => {
+        const rankingTable = document.getElementById('ranking-table');
+        data.forEach((player, index) => {
+            const row = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${player.jogador}</td>
+                    <td>${player.kills}</td>
+                    <td>${player.deaths}</td>
+                    <td>${player.assists}</td>
+                </tr>
+            `;
+            rankingTable.innerHTML += row;
+        });
+    })
+    .catch(error => console.error('Erro ao carregar o ranking:', error));
+
+/*  CASO EU QUEIRA QUE OS DADOS SEJAM INSERIDOS AUTOMATICAMENTE A PARTIR DO LOG DO JOGO, SEGUIR OS SEGUINTES PASSOS:
+
+    Leitura do log: Use o Node.js para ler o arquivo de log e extrair as informações relevantes.
+    Inserção no banco: Insira os dados extraídos do log no banco de dados.
+    Frontend: Seu HTML e JavaScript já estão configurados para exibir esses dados.
+
+*/
+    </script>
+</body>
+</html>
+
+
