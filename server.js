@@ -11,7 +11,7 @@ const PORT = 3001; // Definindo a porta onde o servidor vai rodar
 const db = mysql.createConnection({
   host: "localhost", // Substitua com o endereço do seu servidor MySQL (normalmente 'localhost')
   user: "root",
-  password: "@420Jota26",
+  password: "*********",
   database: "rankingCS",
 });
 
