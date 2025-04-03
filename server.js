@@ -1,15 +1,15 @@
 // Importando dependências
-const express = require("express"); // Express para criar o servidor
-const mysql = require("mysql"); // MySQL para conectar ao banco de dados
+const express = require("express");
+const mysql = require("mysql"); 
 const cors = require("cors"); // CORS para permitir requisições de outros domínios
 
 // Iniciando o aplicativo Express
 const app = express();
-const PORT = 3001; // Definindo a porta onde o servidor vai rodar
+const PORT = 3001; 
 
 // Configuração do banco de dados MySQL
 const db = mysql.createConnection({
-  host: "localhost", // Substitua com o endereço do seu servidor MySQL (normalmente 'localhost')
+  host: "localhost", 
   user: "root",
   password: "*********",
   database: "rankingCS",
